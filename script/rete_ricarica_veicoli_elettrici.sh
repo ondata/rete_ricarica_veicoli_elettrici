@@ -20,3 +20,18 @@ ogr2ogr -f CSV -lco GEOMETRY=AS_XY  "$folder"/../data/rete_ricarica_veicoli_elet
 
 ## mlrgo è un alias per Miller, che di default è mlr
 mlrgo -S -I --csv sort -f ID_univoco_EVSE "$folder"/../data/rete_ricarica_veicoli_elettrici.csv
+
+# cleaned_data
+
+cp -f "$folder"/../data/rete_ricarica_veicoli_elettrici.csv "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+
+characters=("Ã¨" "Ã©" "Ã¹" "Ã²" "Ã¬" "Ãª" "Ã")
+replacements=("è" "é" "ù" "ò" "ì" "ê" "à")
+
+# Cicla attraverso gli array per eseguire le sostituzioni
+for ((i=0; i<${#characters[@]}; i++)); do
+    sed -i "s/${characters[i]}/${replacements[i]}/g" "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+done
+
+sed -i 's/\xc2\xa0/ /g' "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+mlrgo -I -S --csv clean-whitespace "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
