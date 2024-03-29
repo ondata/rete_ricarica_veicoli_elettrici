@@ -33,5 +33,7 @@ for ((i=0; i<${#characters[@]}; i++)); do
     sed -i "s/${characters[i]}/${replacements[i]}/g" "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
 done
 
+# rimuovi NBSP (Non-breaking space)
 sed -i 's/\xc2\xa0/ /g' "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+# rimuovi spazi ridondanti
 mlrgo -I -S --csv clean-whitespace "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
