@@ -28,7 +28,7 @@ cp -f "$folder"/../data/rete_ricarica_veicoli_elettrici.csv "$folder"/../data/re
 characters=("Ã¨" "Ã©" "Ã¹" "Ã²" "Ã¬" "Ãª" "Ã")
 replacements=("è" "é" "ù" "ò" "ì" "ê" "à")
 
-# Cicla attraverso gli array per eseguire le sostituzioni
+# Cicla attraverso gli array per eseguire le sostituzioni (vedi #1)
 for ((i=0; i<${#characters[@]}; i++)); do
     sed -i "s/${characters[i]}/${replacements[i]}/g" "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
 done
