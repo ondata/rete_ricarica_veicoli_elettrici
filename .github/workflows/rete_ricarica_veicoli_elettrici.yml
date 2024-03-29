@@ -23,10 +23,12 @@ jobs:
         cp bin/scrape ~/bin
         cp bin/mlr ~/bin
         cp bin/mlrgo ~/bin
+        cp bin/duckdb ~/bin
         cd ~/bin
         chmod +x scrape
         chmod +x mlr
         chmod +x mlrgo
+        chmod +x duckdb
         sudo apt-get install gdal-bin
     - name: esegui lo script
       run: |-
