@@ -5,3 +5,11 @@ A fine marzo 2024 è stata messa online la [**Piattaforma Unica Nazionale dei pu
 Lo saranno in futuro? Non è dato saperlo, ma è molto probabile che avvenga, perché lo prevedono le norme e lo raccomanda il buon senso.
 
 Finché le API saranno accessibili aggiorneremo i dati nella cartella [`data`](data).
+
+## Accesso dati
+
+Navigando il sito con un _browser_ (vedi immagine sotto), si legge in chiaro che i dati sono esposti tramite API.
+
+In particolare, leggendo gli URL delle API, si vede che si tratta di un *ArcGIS REST Service*, che sono direttamente e comodamente leggibili con [**GDAL/OGR**](https://gdal.org/drivers/vector/esrijson.html).
+
+![](immagini/browser_api.png)
