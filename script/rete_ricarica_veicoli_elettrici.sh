@@ -43,3 +43,8 @@ done
 sed -i 's/\xc2\xa0/ /g' "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
 # rimuovi spazi ridondanti
 mlrgo -I -S --csv clean-whitespace "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+
+# normalizza i nomi delle colonne (vedi #4)
+duckdb --csv -c "SELECT * from read_csv('$folder/../data/rete_ricarica_veicoli_elettrici_cleaned.csv',normalize_names=true,all_varchar=true)" >"$folder"/../data/tmp.csv
+mv "$folder"/../data/tmp.csv "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+mlrgo -I --csv cat "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
