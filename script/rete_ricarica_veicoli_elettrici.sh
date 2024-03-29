@@ -1,5 +1,10 @@
 #!/bin/bash
 
+### requisiti ###
+# gdal ogr https://gdal.org/programs/ogr2ogr.html
+# Miller https://miller.readthedocs.io
+### requisiti ###
+
 set -x
 set -e
 set -u
@@ -13,4 +18,5 @@ URL="https://services2.arcgis.com/pROHh69WvVijk4nR/ArcGIS/rest/services/IdR_late
 
 ogr2ogr -f CSV -lco GEOMETRY=AS_XY  "$folder"/../data/rete_ricarica_veicoli_elettrici.csv  "$URL" OGRGeoJSON
 
+## mlrgo è un alias per Miller, che di default è mlr
 mlrgo -S -I --csv sort -f ID_univoco_EVSE "$folder"/../data/rete_ricarica_veicoli_elettrici.csv
