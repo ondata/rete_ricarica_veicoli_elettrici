@@ -7,6 +7,8 @@ Abbiamo fatto una segnalazione in tal senso al [**Difensore Civico per il Digita
 
 ➡️ Finché le API saranno accessibili aggiorneremo i dati nella cartella [`data`](data).
 
+Nota bene: nei dati sorgente c'è un problema di codifica dei caratteri (evidente con i caratteri accentati).
+
 ## Accesso dati
 
 Navigando il sito con un _browser_ (vedi immagine sotto), si legge in chiaro che i dati sono esposti tramite API.
