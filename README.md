@@ -9,6 +9,8 @@ Abbiamo fatto una segnalazione in tal senso al [**Difensore Civico per il Digita
 
 Nota bene: nei dati sorgente c'è un problema di codifica dei caratteri (evidente con i caratteri accentati).
 
+[`feed RSS aggiornamento dati`](https://github.com/ondata/rete_ricarica_veicoli_elettrici/commits/main/data/rete_ricarica_veicoli_elettrici.csv.atom)
+
 ## Le API
 
 Navigando il sito con un _browser_ (vedi immagine sotto), si legge che i dati sono esposti tramite API.
