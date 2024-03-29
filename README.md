@@ -4,4 +4,4 @@ A fine marzo 2024 è stata messa online la [**Piattaforma Unica Nazionale dei pu
 
 Lo saranno in futuro? Non è dato saperlo, ma è molto probabile che avvenga, perché lo prevedono le norme e lo raccomanda il buon senso.
 
-Finché le API saranno accessibili aggiorneremo i dati nella cartella [`data`].
+Finché le API saranno accessibili aggiorneremo i dati nella cartella [`data`](data).
