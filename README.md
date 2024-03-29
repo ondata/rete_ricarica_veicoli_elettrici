@@ -18,3 +18,8 @@ Navigando il sito con un _browser_ (vedi immagine sotto), si legge che i dati so
 In particolare, leggendo gli URL delle API, si vede che si tratta di un *ArcGIS REST Service*, che sono direttamente e comodamente leggibili con [**GDAL/OGR**](https://gdal.org/drivers/vector/esrijson.html).
 
 ![](immagini/browser_api.png)
+
+## Chi ha usato questi dati
+
+- il POST, [**Dove ricaricare l’auto elettrica in Italia**](https://www.ilpost.it/2024/03/29/mappa-colonnine-ricarica-auto-elettriche/);
+- Gianni Vitrano, [**Italia | Punti di ricarica per i veicoli elettrici**](https://umap.openstreetmap.fr/en/map/italia-punti-di-ricarica-per-i-veicoli-elettrici_1046714)
