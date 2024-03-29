@@ -11,7 +11,7 @@ Nota bene: nei dati sorgente c'è un problema di codifica dei caratteri (evident
 
 ## Le API
 
-Navigando il sito con un _browser_ (vedi immagine sotto), si legge in chiaro che i dati sono esposti tramite API.
+Navigando il sito con un _browser_ (vedi immagine sotto), si legge che i dati sono esposti tramite API.
 
 In particolare, leggendo gli URL delle API, si vede che si tratta di un *ArcGIS REST Service*, che sono direttamente e comodamente leggibili con [**GDAL/OGR**](https://gdal.org/drivers/vector/esrijson.html).
 
