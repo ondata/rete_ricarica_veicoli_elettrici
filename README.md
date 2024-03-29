@@ -5,7 +5,7 @@ A fine marzo 2024 è stata messa online la [**Piattaforma Unica Nazionale dei pu
 Lo saranno in futuro? Non è dato saperlo, ma è molto probabile che avvenga, perché lo prevedono le norme e lo raccomanda il buon senso.<br>
 Abbiamo fatto una segnalazione in tal senso al [**Difensore Civico per il Digitale**](https://ondata.github.io/guida-diritti-cittadinanza-digitali/parte-seconda/tutela-dei-diritti/).
 
-➡️ Finché le API saranno accessibili aggiorneremo i dati nella cartella [`data`](data).
+➡️ Finché le [API](#le-api) saranno accessibili aggiorneremo i dati nella cartella [`data`](data).
 
 Nota bene: nei dati sorgente c'è un problema di codifica dei caratteri (evidente con i caratteri accentati).
 
