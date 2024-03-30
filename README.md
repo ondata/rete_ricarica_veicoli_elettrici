@@ -17,7 +17,7 @@ Navigando il sito della **Piattaforma Unica Nazionale dei punti di ricarica per 
 
 In particolare, leggendo gli URL delle API, si vede che si tratta di un *ArcGIS REST Service*, che sono direttamente e comodamente leggibili con [**GDAL/OGR**](https://gdal.org/drivers/vector/esrijson.html).
 
-![](immagini/browser_api.png)
+[![](immagini/browser_api.png)](https://www.piattaformaunicanazionale.it/territory-idr)
 
 ## Chi ha usato questi dati
 
