@@ -19,7 +19,7 @@ folder="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 mkdir -p "$folder"/output
 mkdir -p "$folder"/../data/api
 
-# node "$folder"/rete_ricarica_veicoli_elettrici.js
+node "$folder"/rete_ricarica_veicoli_elettrici.js
 
 # if "$folder"/output/rete_ricarica_veicoli_elettrici.jsonl exists, delete it
 if [ -f "$folder"/output/rete_ricarica_veicoli_elettrici.jsonl ]; then

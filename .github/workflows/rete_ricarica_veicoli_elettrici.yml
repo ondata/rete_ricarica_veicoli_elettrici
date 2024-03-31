@@ -46,10 +46,6 @@ jobs:
         cd ./script
         chmod +x ./rete_ricarica_veicoli_elettrici.sh
         ./rete_ricarica_veicoli_elettrici.sh
-    - name: esegui lo script base
-      run: |-
-        export PATH=$PATH:~/bin
-        cd ./script
         chmod +x ./rete_ricarica_veicoli_elettrici_api.sh
         ./rete_ricarica_veicoli_elettrici_api.sh
     - name: Pulisci cartelle temporanee
