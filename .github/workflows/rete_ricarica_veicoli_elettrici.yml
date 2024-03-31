@@ -29,7 +29,17 @@ jobs:
         chmod +x mlr
         chmod +x mlrgo
         chmod +x duckdb
+        pip install flatterer
         sudo apt-get install gdal-bin
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '20' # Puoi impostare la versione di Node.js necessaria per il tuo script
+    - name: Installa dipendenze
+      run: |
+        npm install puppeteer
+        npm install fs-extra
+        npm install path
     - name: esegui lo script
       run: |-
         export PATH=$PATH:~/bin
