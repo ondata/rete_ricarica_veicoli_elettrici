@@ -3,6 +3,7 @@
 ### requisiti ###
 # gdal ogr https://gdal.org/programs/ogr2ogr.html
 # Miller https://miller.readthedocs.io
+# duckdb https://duckdb.org
 ### requisiti ###
 
 ### nota ###
