@@ -29,6 +29,7 @@ jobs:
         chmod +x mlr
         chmod +x mlrgo
         chmod +x duckdb
+        pip install csvmatch=="1.24"
         sudo apt-get install gdal-bin
     - name: esegui lo script base
       run: |-
