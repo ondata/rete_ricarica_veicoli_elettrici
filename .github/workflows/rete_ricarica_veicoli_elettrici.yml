@@ -29,31 +29,13 @@ jobs:
         chmod +x mlr
         chmod +x mlrgo
         chmod +x duckdb
-        pip install flatterer
         sudo apt-get install gdal-bin
-    - name: Setup Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '20'
-    - name: Installa Chrome
-      run: npx puppeteer browsers install chrome
-    - name: Imposta variabile d'ambiente per il percorso della cache di Puppeteer
-      run: echo "export PUPPETEER_DOWNLOAD_PATH=/home/runner/.cache/puppeteer" >> $GITHUB_ENV
-    - name: Installa dipendenze
-      run: |
-        npm install puppeteer
-        npm install fs-extra
-        npm install path
     - name: esegui lo script base
       run: |-
         export PATH=$PATH:~/bin
         cd ./script
         chmod +x ./rete_ricarica_veicoli_elettrici.sh
         ./rete_ricarica_veicoli_elettrici.sh
-        chmod +x ./rete_ricarica_veicoli_elettrici_api.sh
-        ./rete_ricarica_veicoli_elettrici_api.sh
-    - name: Pulisci cartelle temporanee
-      run: rm -rf node_modules
     - name: Committa e pusha se ci sono variazioni nei dati
       run: |-
         git config user.name "automatico"
