@@ -34,7 +34,11 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '20' # Puoi impostare la versione di Node.js necessaria per il tuo script
+        node-version: '20'
+    - name: Installa Chrome
+      run: npx puppeteer browsers install chrome
+    - name: Imposta variabile d'ambiente per il percorso della cache di Puppeteer
+      run: echo "export PUPPETEER_DOWNLOAD_PATH=/home/runner/.cache/puppeteer" >> $GITHUB_ENV
     - name: Installa dipendenze
       run: |
         npm install puppeteer
