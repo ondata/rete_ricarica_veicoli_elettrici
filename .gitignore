@@ -1,2 +1,3 @@
 *.Identifier
 tmp*
+script/output/*
