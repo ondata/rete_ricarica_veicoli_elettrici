@@ -48,4 +48,29 @@ mlrgo -I -S --csv clean-whitespace "$folder"/../data/rete_ricarica_veicoli_elett
 # normalizza i nomi delle colonne (vedi #4)
 duckdb --csv -c "SELECT * from read_csv('$folder/../data/rete_ricarica_veicoli_elettrici_cleaned.csv',normalize_names=true,all_varchar=true)" >"$folder"/../data/tmp.csv
 mv "$folder"/../data/tmp.csv "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
-mlrgo -I --csv cat "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+mlrgo -S -I --csv cat "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+
+# correggere nomi regione (vedi #7)
+mlrgo -S -I --csv put '$regione_cleaned=$regione' then sub -f regione_cleaned "Trentino.*" "Trentino-Alto Adige/Südtirol" then \
+sub -f regione_cleaned "Valle.*" "Valle d'Aosta/Vallée d'Aoste" "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+
+
+# correggere nomi comuni (vedi #8)
+mlrgo -S -I --csv put '$comune_cleaned=$comune' "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+
+
+while read -r line; do
+  regione=$(echo "$line" | jq -r '.regione')
+  comune=$(echo "$line" | jq -r '.comune')
+  comune_cleaned=$(echo "$line" | jq -r '.comune_cleaned')
+  mlrgo -I -S --csv put 'if ($regione_cleaned == "'"$regione"'" && $comune_cleaned == "'"$comune"'"){ $comune_cleaned = "'"$comune_cleaned"'"}else{$comune_cleaned=$comune_cleaned}' "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+done < "${folder}"/../data/risorse/comuni.jsonl
+
+# aggiungi colonna con codice comune formato alfanumerico
+mlrgo --csv cut -f regione_cleaned,comune_cleaned then uniq -a "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv > "${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned.csv
+
+csvmatch "${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned.csv "${folder}"/../data/risorse/Elenco-comuni-italiani.csv --fields1 regione_cleaned comune_cleaned --fields2 denominazione_regione denominazione_in_italiano  -i -a -n --join left-outer --output 1.regione_cleaned 1.comune_cleaned 2.codice_comune_formato_alfanumerico >"${folder}"/output/tmp.csv
+
+mlrgo -S --csv join --ul -j regione_cleaned,comune_cleaned -f "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv  then unsparsify then sort -f id_univoco_evse then reorder -e -f regione_cleaned,comune_cleaned,codice_comune_formato_alfanumerico "${folder}"/output/tmp.csv >"${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned_istat.csv
+
+mv "${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned_istat.csv "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
