@@ -3,23 +3,33 @@ const fs = require('fs');
 const path = require('path');
 
 (async () => {
+    console.log('Avvio dello script...');
+
     const browser = await puppeteer.launch();
+    console.log('Browser avviato con successo.');
+
     const page = await browser.newPage();
+    console.log('Pagina creata con successo.');
 
     // Attiva il protocollo del devtools su questa pagina
     await page.target().createCDPSession();
+    console.log('Protocollo DevTools attivato.');
 
     // Cattura le risposte JSON
     const responses = [];
 
     // Svuota la cartella di output prima di iniziare
     const outputDirectory = path.join(__dirname, 'output');
+    console.log('Percorso della cartella di output:', outputDirectory);
+
     if (fs.existsSync(outputDirectory)) {
         fs.readdirSync(outputDirectory).forEach((file) => {
             const filePath = path.join(outputDirectory, file);
             fs.unlinkSync(filePath);
             console.log(`Eliminato ${file}`);
         });
+    } else {
+        console.log('La cartella di output non esiste. Verrà creata.');
     }
 
     page.on('response', async (response) => {
@@ -41,7 +51,10 @@ const path = require('path');
     });
 
     // Abilita la registrazione del traffico di rete tramite DevTools
+    console.log('Navigazione verso la pagina...');
     await page.goto('https://www.piattaformaunicanazionale.it/idr');
+    console.log('Pagina caricata.');
+
     await page.evaluate(() => {
         const devtools = window.devtools = window.open('about:blank');
         devtools.opener = null;
@@ -51,9 +64,11 @@ const path = require('path');
     });
 
     // Attendi che il traffico di rete si calmi
+    console.log('Attesa del traffico di rete...');
     await waitForNetworkIdle(page, 10000); // Attendi 10 secondi
 
     // Salva le risposte JSON in file nella directory 'output'
+    console.log('Salvataggio delle risposte JSON...');
     if (!fs.existsSync(outputDirectory)) {
         fs.mkdirSync(outputDirectory);
     }
@@ -66,6 +81,7 @@ const path = require('path');
     });
 
     // Chiudi il browser
+    console.log('Chiusura del browser...');
     await browser.close();
 
     console.log('Salvataggio completato. Browser chiuso.');
