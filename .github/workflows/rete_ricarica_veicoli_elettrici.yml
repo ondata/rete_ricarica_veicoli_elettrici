@@ -40,12 +40,18 @@ jobs:
         npm install puppeteer
         npm install fs-extra
         npm install path
-    - name: esegui lo script
+    - name: esegui lo script base
       run: |-
         export PATH=$PATH:~/bin
         cd ./script
         chmod +x ./rete_ricarica_veicoli_elettrici.sh
         ./rete_ricarica_veicoli_elettrici.sh
+    - name: esegui lo script base
+      run: |-
+        export PATH=$PATH:~/bin
+        cd ./script
+        chmod +x ./rete_ricarica_veicoli_elettrici_api.sh
+        ./rete_ricarica_veicoli_elettrici_api.sh
     - name: Pulisci cartelle temporanee
       run: rm -rf node_modules
     - name: Committa e pusha se ci sono variazioni nei dati
