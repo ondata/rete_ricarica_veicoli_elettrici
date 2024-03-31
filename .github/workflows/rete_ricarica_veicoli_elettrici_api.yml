@@ -38,6 +38,7 @@ jobs:
         export PATH=$PATH:~/bin
         cd ./script
         chmod +x ./rete_ricarica_veicoli_elettrici_api.sh
+        node rete_ricarica_veicoli_elettrici.js
         ./rete_ricarica_veicoli_elettrici_api.sh
     - name: Pulisci cartelle temporanee
       run: rm -rf node_modules
