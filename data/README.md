@@ -11,7 +11,7 @@ Alcune note:
   - aggiunta colonna `regione_cleaned` con nome regione corretto, `Trentino-Alto Adige/Südtirol` per `Trentino-Alto Adige`, ecc. (vedi [issue #7](https://github.com/ondata/rete_ricarica_veicoli_elettrici/issues/7))
   - aggiunta colonna `comune_cleaned` con nome comune corretto, `Montagna sulla strada del vino` per `Montagna`, ecc. (vedi [issue #8](https://github.com/ondata/rete_ricarica_veicoli_elettrici/issues/8))
   - aggiunta colonna `codice_comune_formato_alfanumerico`, con il codice alfanumerico Istat, del Comune indicato nella colonna `comune_cleaned`
-- il file `immatricolazioni_auto_provincia.csv` è un file che contiene i dati sulle immatricolazioni di auto per provincia (ultimo aggiornamento: 2023);
-- il fil `serie_storica_immatricolazioni_nazionali.csv` è un file che contiene i dati sulle immatricolazioni di auto a livello nazionale, dal 2020 al 2023.
+- il file [`immatricolazioni_auto_provincia.csv`](immatricolazioni_auto_provincia.csv) è un file che contiene i dati sulle immatricolazioni di auto per provincia (ultimo aggiornamento: 2023);
+- il fil [`serie_storica_immatricolazioni_nazionali.csv`](serie_storica_immatricolazioni_nazionali.csv) è un file che contiene i dati sulle immatricolazioni di auto a livello nazionale, dal 2020 al 2023.
 
 La fonte di questi dati è la [**Piattaforma Unica Nazionale dei punti di ricarica per i veicoli elettrici**](https://www.piattaformaunicanazionale.it/).
