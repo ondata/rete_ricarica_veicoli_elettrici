@@ -53,7 +53,8 @@ mlrgo -S -I --csv cat "$folder"/../data/rete_ricarica_veicoli_elettrici_cleaned.
 
 # correggere nomi regione (vedi #7)
 mlrgo -S -I --csv put '$regione_cleaned=$regione' then sub -f regione_cleaned "Trentino.*" "Trentino-Alto Adige/Südtirol" then \
-sub -f regione_cleaned "Valle.*" "Valle d'Aosta/Vallée d'Aoste" "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+sub -f regione_cleaned "Valle.*" "Valle d'Aosta/Vallée d'Aoste" then \
+sub -f regione_cleaned "Friuli.*" "Friuli-Venezia Giulia" "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
 
 
 # correggere nomi comuni (vedi #8)
@@ -70,7 +71,11 @@ done < "${folder}"/../data/risorse/comuni.jsonl
 # aggiungi colonna con codice comune formato alfanumerico
 mlrgo --csv cut -f regione_cleaned,comune_cleaned then uniq -a "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv > "${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned.csv
 
-csvmatch "${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned.csv "${folder}"/../data/risorse/Elenco-comuni-italiani.csv --fields1 regione_cleaned comune_cleaned --fields2 denominazione_regione denominazione_in_italiano  -i -a -n --join left-outer --output 1.regione_cleaned 1.comune_cleaned 2.codice_comune_formato_alfanumerico >"${folder}"/output/tmp.csv
+duckdb --csv -c "SELECT A.*,B.codice_comune_formato_alfanumerico from read_csv('${folder}/output/rete_ricarica_veicoli_elettrici_cleaned.csv',all_varchar=true) A
+JOIN read_csv('${folder}/../data/risorse/Elenco-comuni-italiani.csv',all_varchar=true) B
+ON LOWER(A.regione_cleaned) = LOWER(B.denominazione_regione) AND LOWER(A.comune_cleaned) = LOWER(B.denominazione_in_italiano)" >"${folder}"/output/tmp.csv
+
+#csvmatch "${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned.csv "${folder}"/../data/risorse/Elenco-comuni-italiani.csv --fields1 regione_cleaned comune_cleaned --fields2 denominazione_regione denominazione_in_italiano  -i -a -n --join left-outer --output 1.regione_cleaned 1.comune_cleaned 2.codice_comune_formato_alfanumerico >"${folder}"/output/tmp.csv
 
 mlrgo -S --csv join --ul -j regione_cleaned,comune_cleaned -f "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv  then unsparsify then sort -f id_univoco_evse then reorder -e -f regione_cleaned,comune_cleaned,codice_comune_formato_alfanumerico "${folder}"/output/tmp.csv >"${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned_istat.csv
 
