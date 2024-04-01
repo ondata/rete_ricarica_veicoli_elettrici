@@ -80,3 +80,15 @@ ON LOWER(A.regione_cleaned) = LOWER(B.denominazione_regione) AND LOWER(A.comune_
 mlrgo -S --csv join --ul -j regione_cleaned,comune_cleaned -f "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv  then unsparsify then sort -f id_univoco_evse then reorder -e -f regione_cleaned,comune_cleaned,codice_comune_formato_alfanumerico "${folder}"/output/tmp.csv >"${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned_istat.csv
 
 mv "${folder}"/output/rete_ricarica_veicoli_elettrici_cleaned_istat.csv "${folder}"/../data/rete_ricarica_veicoli_elettrici_cleaned.csv
+
+### Dati sulle automobili elettriche ###
+
+URL_auto="https://services2.arcgis.com/pROHh69WvVijk4nR/ArcGIS/rest/services/Province_Italiane_BEV/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&returnEnvelope=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token="
+
+# scarica dati e converti in CSV
+ogr2ogr -f CSV  "$folder"/../data/immatricolazioni_auto_provincia.csv  "$URL_auto" OGRGeoJSON
+
+URL_serie_auto="https://services2.arcgis.com/pROHh69WvVijk4nR/ArcGIS/rest/services/Distribuzione_BEV_HYB_grafico/FeatureServer/0/query?where=1%3D1&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=none&f=pgeojson&token="
+
+# scarica dati e converti in CSV
+ogr2ogr -f CSV  "$folder"/../data/serie_storica_immatricolazioni_nazionali.csv  "$URL_serie_auto" OGRGeoJSON
