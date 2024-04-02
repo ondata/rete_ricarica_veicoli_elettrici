@@ -65,7 +65,7 @@ const path = require('path');
 
     // Attendi che il traffico di rete si calmi
     console.log('Attesa del traffico di rete...');
-    await waitForNetworkIdle(page, 10000); // Attendi 10 secondi
+    await waitForNetworkIdle(page, 30000); // Attendi 10 secondi
 
     // Salva le risposte JSON in file nella directory 'output'
     console.log('Salvataggio delle risposte JSON...');
