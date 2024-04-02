@@ -1,7 +1,7 @@
-*.csv text eol=crlf
-*.md text eol=crlf
-*.json text eol=crlf
-*.geojson text eol=crlf
-*.xml text eol=crlf
-*.xmp text eol=crlf
-LICENSE text eol=crlf
+*.csv text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.geojson text eol=lf
+*.xml text eol=lf
+*.xmp text eol=lf
