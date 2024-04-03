@@ -24,3 +24,4 @@ In particolare, leggendo gli URL delle API, si vede che si tratta di un *ArcGIS 
 - il POST, [**Dove ricaricare l’auto elettrica in Italia**](https://www.ilpost.it/2024/03/29/mappa-colonnine-ricarica-auto-elettriche/);
 - Gianni Vitrano, [**Italia | Punti di ricarica per i veicoli elettrici**](https://umap.openstreetmap.fr/en/map/italia-punti-di-ricarica-per-i-veicoli-elettrici_1046714)
 - Guenter Richter, [**Una mappa per esplorare i dati del PUN**](https://gjrichter.github.io/pages/PUN/)
+- Riccardo Saporiti, su WIRED, [Abbiamo costruito una mappa delle colonnine di ricarica delle auto elettriche](https://www.wired.it/article/colonnine-di-ricarica-mappa-stazioni-italia/)
