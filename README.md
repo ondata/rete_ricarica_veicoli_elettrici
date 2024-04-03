@@ -1,3 +1,5 @@
+[![Static Badge](https://img.shields.io/badge/%F0%9F%91%89-LA_NOSTRA_NEWLETTER-blue)](https://ondata.substack.com/)
+
 # Intro
 
 A fine marzo 2024 è stata messa online la [**Piattaforma Unica Nazionale dei punti di ricarica per i veicoli elettrici**](https://www.piattaformaunicanazionale.it/), in cui sono visualizzabili su mappa o in elenchi - e **non anche come dati grezzi e aperti** - i punti di ricarica per veicoli elettrici presenti in Italia.
