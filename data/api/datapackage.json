@@ -13,133 +13,133 @@
             "title": "_link",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "publicationStatus",
             "title": "publicationStatus",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "locationId",
             "title": "locationId",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "uid",
             "title": "uid",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "businessName",
             "title": "businessName",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "status",
             "title": "status",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "capabilities",
             "title": "capabilities",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "evse_id",
             "title": "evse_id",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "location__id",
             "title": "location__id",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "location_address",
             "title": "location_address",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "location_city",
             "title": "location_city",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "location_state",
             "title": "location_state",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "location_country",
             "title": "location_country",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "location_party_id",
             "title": "location_party_id",
             "type": "string",
             "format": "string",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "location_postal_code",
             "title": "location_postal_code",
             "type": "string",
             "format": "string",
-            "count": 32939
-          },
-          {
-            "name": "location_parking_type",
-            "title": "location_parking_type",
-            "type": "string",
-            "format": "string",
-            "count": 5502
+            "count": 33835
           },
           {
             "name": "location_opening_times_twentyfourseven",
             "title": "location_opening_times_twentyfourseven",
             "type": "boolean",
             "format": "boolean",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "coordinates_latitude",
             "title": "coordinates_latitude",
             "type": "number",
             "format": "number",
-            "count": 32939
+            "count": 33835
           },
           {
             "name": "coordinates_longitude",
             "title": "coordinates_longitude",
             "type": "number",
             "format": "number",
-            "count": 32939
+            "count": 33835
+          },
+          {
+            "name": "location_parking_type",
+            "title": "location_parking_type",
+            "type": "string",
+            "format": "string",
+            "count": 5578
           }
         ],
         "primaryKey": "_link"
@@ -158,35 +158,35 @@
             "title": "_link",
             "type": "string",
             "format": "string",
-            "count": 32960
+            "count": 33861
           },
           {
             "name": "_link_main",
             "title": "_link_main",
             "type": "string",
             "format": "string",
-            "count": 32960
+            "count": 33861
           },
           {
             "name": "standard",
             "title": "standard",
             "type": "string",
             "format": "string",
-            "count": 32960
+            "count": 33861
           },
           {
             "name": "power_type",
             "title": "power_type",
             "type": "string",
             "format": "string",
-            "count": 32960
+            "count": 33861
           },
           {
             "name": "max_electric_power",
             "title": "max_electric_power",
             "type": "number",
             "format": "number",
-            "count": 32960
+            "count": 33861
           }
         ],
         "primaryKey": "_link",
@@ -214,35 +214,35 @@
             "title": "_link",
             "type": "string",
             "format": "string",
-            "count": 6350
+            "count": 6429
           },
           {
             "name": "_link_main",
             "title": "_link_main",
             "type": "string",
             "format": "string",
-            "count": 6350
+            "count": 6429
           },
           {
             "name": "weekday",
             "title": "weekday",
             "type": "number",
             "format": "number",
-            "count": 6350
+            "count": 6429
           },
           {
             "name": "period_begin",
             "title": "period_begin",
             "type": "string",
             "format": "string",
-            "count": 6350
+            "count": 6429
           },
           {
             "name": "period_end",
             "title": "period_end",
             "type": "string",
             "format": "string",
-            "count": 6350
+            "count": 6429
           }
         ],
         "primaryKey": "_link",
