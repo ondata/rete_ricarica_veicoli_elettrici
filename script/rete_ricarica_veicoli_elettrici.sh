@@ -93,3 +93,24 @@ URL_serie_auto="https://services2.arcgis.com/pROHh69WvVijk4nR/ArcGIS/rest/servic
 
 # scarica dati e converti in CSV
 # ogr2ogr -f CSV  "$folder"/../data/serie_storica_immatricolazioni_nazionali.csv  "$URL_serie_auto" OGRGeoJSON
+
+# nuova fonte dati
+
+URL_nuovo="https://utility.arcgis.com/usrsvcs/servers/7fc26f462fb040f09538cc76162b5766/rest/services/PdR_latest_ready/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson"
+
+# scarica dati e converti in CSV
+ogr2ogr -f CSV -lco GEOMETRY=AS_XY  "$folder"/../data/pdr_latest_ready.csv  "$URL_nuovo" OGRGeoJSON
+
+# ordina i dati per ID_univoco_EVSE, così il diff del versioning sarà più lite
+mlrgo -S -I --csv sort -f ID_univoco_EVSE "$folder"/../data/pdr_latest_ready.csv
+
+
+# rimuovi NBSP (Non-breaking space)
+sed -i 's/\xc2\xa0/ /g' "$folder"/../data/pdr_latest_ready.csv
+# rimuovi spazi ridondanti
+mlrgo -I -S --csv clean-whitespace "$folder"/../data/pdr_latest_ready.csv
+
+# normalizza i nomi delle colonne (vedi #4)
+duckdb --csv -c "SELECT * from read_csv('$folder/../data/pdr_latest_ready.csv',normalize_names=true,all_varchar=true)" >"$folder"/../data/tmp.csv
+mv "$folder"/../data/tmp.csv "$folder"/../data/pdr_latest_ready.csv
+mlrgo -S -I --csv cat "$folder"/../data/pdr_latest_ready.csv
