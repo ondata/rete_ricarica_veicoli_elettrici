@@ -1,43 +1,43 @@
 name: aggiorna dati
 
 on:
-#  push:
   repository_dispatch:
   schedule:
     - cron: "5 4 * * *"
-#    - cron: "3 8-11 * * *"
-#    - cron: "3 11-23/2 * * *"
   workflow_dispatch:
 
 jobs:
   scheduled:
     runs-on: ubuntu-latest
     steps:
-    - name: Utilizza l'action github checkout@v2, per automatizzare il check-out
+    - name: Checkout del repository
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: crea cartella utente bin, copia dentro l'eseguibile scrape e mlr
-      run: |-
+
+    - name: Configura l'ambiente
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y software-properties-common
+        sudo add-apt-repository ppa:ubuntugis/ppa
+        sudo apt-get update
+        sudo apt-get install -y gdal-bin
+
+    - name: Prepara gli strumenti
+      run: |
         mkdir -p ~/bin
-        cp bin/scrape ~/bin
-        cp bin/mlr ~/bin
-        cp bin/mlrgo ~/bin
-        cp bin/duckdb ~/bin
-        cd ~/bin
-        chmod +x scrape
-        chmod +x mlr
-        chmod +x mlrgo
-        chmod +x duckdb
-        sudo apt-get install gdal-bin
-    - name: esegui lo script base
-      run: |-
-        export PATH=$PATH:~/bin
+        cp bin/{scrape,mlr,mlrgo,duckdb} ~/bin/
+        chmod +x ~/bin/{scrape,mlr,mlrgo,duckdb}
+        echo "$HOME/bin" >> $GITHUB_PATH
+
+    - name: Esegui lo script base
+      run: |
         cd ./script
         chmod +x ./rete_ricarica_veicoli_elettrici.sh
         ./rete_ricarica_veicoli_elettrici.sh
-    - name: Committa e pusha se ci sono variazioni nei dati
-      run: |-
+
+    - name: Committa e pusha le modifiche
+      run: |
         git config user.name "automatico"
         git config user.email "actions@users.noreply.github.com"
         git add -A
