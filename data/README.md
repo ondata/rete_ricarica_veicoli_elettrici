@@ -17,3 +17,9 @@ Alcune note:
 - il file [`serie_storica_immatricolazioni_nazionali.csv`](serie_storica_immatricolazioni_nazionali.csv) è un file che contiene i dati sulle immatricolazioni di auto a livello nazionale, dal 2020 al 2023.
 
 La fonte di questi dati è la [**Piattaforma Unica Nazionale dei punti di ricarica per i veicoli elettrici**](https://www.piattaformaunicanazionale.it/).
+
+## Aggiornamento
+
+C'è un'altra fonte dati del PUN che monitoriamo, il cui output è più completo e aggiornato. Nelle prossime settimane aggiorneremo la descrizione di questa pagina e della home del repository, per darne conto.
+
+L'output di questa fonte è il file [`pdr_latest_ready.csv`](pdr_latest_ready.csv).
