@@ -13,250 +13,40 @@
             "title": "_link",
             "type": "string",
             "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "publicationStatus",
-            "title": "publicationStatus",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "locationId",
-            "title": "locationId",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "uid",
-            "title": "uid",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "businessName",
-            "title": "businessName",
-            "type": "string",
-            "format": "string",
-            "count": 33897
+            "count": 48512
           },
           {
             "name": "status",
             "title": "status",
             "type": "string",
             "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "capabilities",
-            "title": "capabilities",
-            "type": "string",
-            "format": "string",
-            "count": 33897
+            "count": 48512
           },
           {
             "name": "evse_id",
             "title": "evse_id",
             "type": "string",
             "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "location__id",
-            "title": "location__id",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "location_address",
-            "title": "location_address",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "location_city",
-            "title": "location_city",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "location_state",
-            "title": "location_state",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "location_country",
-            "title": "location_country",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "location_party_id",
-            "title": "location_party_id",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "location_postal_code",
-            "title": "location_postal_code",
-            "type": "string",
-            "format": "string",
-            "count": 33897
-          },
-          {
-            "name": "location_parking_type",
-            "title": "location_parking_type",
-            "type": "string",
-            "format": "string",
-            "count": 5641
-          },
-          {
-            "name": "location_opening_times_twentyfourseven",
-            "title": "location_opening_times_twentyfourseven",
-            "type": "boolean",
-            "format": "boolean",
-            "count": 33897
+            "count": 48512
           },
           {
             "name": "coordinates_latitude",
             "title": "coordinates_latitude",
             "type": "number",
             "format": "number",
-            "count": 33897
+            "count": 48512
           },
           {
             "name": "coordinates_longitude",
             "title": "coordinates_longitude",
             "type": "number",
             "format": "number",
-            "count": 33897
+            "count": 48512
           }
         ],
         "primaryKey": "_link"
       },
       "path": "csv/main.csv"
-    },
-    {
-      "profile": "tabular-data-resource",
-      "name": "connectors",
-      "flatterer_name": "connectors",
-      "title": "connectors",
-      "schema": {
-        "fields": [
-          {
-            "name": "_link",
-            "title": "_link",
-            "type": "string",
-            "format": "string",
-            "count": 33919
-          },
-          {
-            "name": "_link_main",
-            "title": "_link_main",
-            "type": "string",
-            "format": "string",
-            "count": 33919
-          },
-          {
-            "name": "standard",
-            "title": "standard",
-            "type": "string",
-            "format": "string",
-            "count": 33919
-          },
-          {
-            "name": "power_type",
-            "title": "power_type",
-            "type": "string",
-            "format": "string",
-            "count": 33919
-          },
-          {
-            "name": "max_electric_power",
-            "title": "max_electric_power",
-            "type": "number",
-            "format": "number",
-            "count": 33919
-          }
-        ],
-        "primaryKey": "_link",
-        "foreignKeys": [
-          {
-            "fields": "_link_main",
-            "reference": {
-              "resource": "main",
-              "fields": "_link"
-            }
-          }
-        ]
-      },
-      "path": "csv/connectors.csv"
-    },
-    {
-      "profile": "tabular-data-resource",
-      "name": "location_opening_times_regular_hours",
-      "flatterer_name": "location_opening_times_regular_hours",
-      "title": "location_opening_times_regular_hours",
-      "schema": {
-        "fields": [
-          {
-            "name": "_link",
-            "title": "_link",
-            "type": "string",
-            "format": "string",
-            "count": 6429
-          },
-          {
-            "name": "_link_main",
-            "title": "_link_main",
-            "type": "string",
-            "format": "string",
-            "count": 6429
-          },
-          {
-            "name": "weekday",
-            "title": "weekday",
-            "type": "number",
-            "format": "number",
-            "count": 6429
-          },
-          {
-            "name": "period_begin",
-            "title": "period_begin",
-            "type": "string",
-            "format": "string",
-            "count": 6429
-          },
-          {
-            "name": "period_end",
-            "title": "period_end",
-            "type": "string",
-            "format": "string",
-            "count": 6429
-          }
-        ],
-        "primaryKey": "_link",
-        "foreignKeys": [
-          {
-            "fields": "_link_main",
-            "reference": {
-              "resource": "main",
-              "fields": "_link"
-            }
-          }
-        ]
-      },
-      "path": "csv/location_opening_times_regular_hours.csv"
     }
   ]
 }
