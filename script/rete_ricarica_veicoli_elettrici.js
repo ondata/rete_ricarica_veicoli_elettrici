@@ -36,8 +36,8 @@ const path = require('path');
         const request = response.request();
         const url = request.url();
 
-        // Controlla se l'URL corrisponde a quello desiderato
-        if (url.includes('https://api.portal.piattaformaunicanazionale.it/v1/chargepoints/public/search')) {
+        // Modifica l'URL di interesse
+        if (url.includes('https://api.portal.piattaformaunicanazionale.it/v1/chargepoints/public/map/search')) {
             try {
                 const responseText = await response.text();
                 // Controlla se il corpo della risposta è valido
@@ -50,22 +50,14 @@ const path = require('path');
         }
     });
 
-    // Abilita la registrazione del traffico di rete tramite DevTools
+    // Naviga verso la pagina di interesse
     console.log('Navigazione verso la pagina...');
     await page.goto('https://www.piattaformaunicanazionale.it/idr');
     console.log('Pagina caricata.');
 
-    await page.evaluate(() => {
-        const devtools = window.devtools = window.open('about:blank');
-        devtools.opener = null;
-        devtools.location = 'chrome-devtools://devtools/bundled/devtools_app.html';
-        devtools.postMessage = message => window.postMessage(message, '*');
-        window.addEventListener('message', event => devtools.postMessage(event.data, '*'));
-    });
-
     // Attendi che il traffico di rete si calmi
     console.log('Attesa del traffico di rete...');
-    await waitForNetworkIdle(page, 30000); // Attendi 10 secondi
+    await waitForNetworkIdle(page, 30000); // Attendi 30 secondi
 
     // Salva le risposte JSON in file nella directory 'output'
     console.log('Salvataggio delle risposte JSON...');
