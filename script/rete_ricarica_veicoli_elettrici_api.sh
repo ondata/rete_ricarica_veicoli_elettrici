@@ -24,6 +24,35 @@ if [ -f "$folder"/output/rete_ricarica_veicoli_elettrici.jsonl ]; then
     rm "$folder"/output/rete_ricarica_veicoli_elettrici.jsonl
 fi
 
+# Abilita nullglob per evitare l'errore di "nessun file trovato" se non ci sono file
+shopt -s nullglob
+
+# Tentativi massimi
+max_attempts=3
+attempt=1
+
+# Controllo e tentativi
+while [ $attempt -le $max_attempts ]; do
+    # Usa l'espansione degli array per evitare errori
+    json_files=("$folder"/output/*.json)
+
+    if [ ${#json_files[@]} -gt 0 ]; then
+        echo "Trovati file JSON. Procedo..."
+        break
+    else
+        echo "Nessun file JSON trovato. Eseguo il comando node (Tentativo $attempt di $max_attempts)..."
+        node rete_ricarica_veicoli_elettrici.js
+    fi
+
+    attempt=$((attempt+1))
+
+    if [ $attempt -gt $max_attempts ]; then
+        echo "Nessun file JSON trovato dopo $max_attempts tentativi. Esco."
+        exit 1
+    fi
+done
+
+# Operazioni sui file JSON trovati
 for i in "$folder"/output/*.json; do
     <"$i" jq -c '.content[]' >>"$folder"/output/rete_ricarica_veicoli_elettrici.jsonl
 done
