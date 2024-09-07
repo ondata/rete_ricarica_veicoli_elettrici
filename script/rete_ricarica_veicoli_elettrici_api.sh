@@ -67,3 +67,4 @@ if [ -f "$folder"/output/rete_ricarica_veicoli_elettrici.jsonl ]; then
   flatterer --force "$folder"/../data/tmp.json "$folder"/../data/api
 fi
 
+mlrgo -I --csv cut -x -f _link then sort -t evse_id "$folder"/../data/api/csv/main.csv

@@ -24,6 +24,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '20'
+    - name: Prepara gli strumenti
+      run: |
+        mkdir -p ~/bin
+        cp bin/mlrgo ~/bin/
+        chmod +x ~/bin/mlrgo
+        echo "$HOME/bin" >> $GITHUB_PATH
     - name: Installa Chrome
       run: npx puppeteer browsers install chrome
     - name: Imposta variabile d'ambiente per il percorso della cache di Puppeteer
