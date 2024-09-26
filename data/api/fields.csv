@@ -1,6 +1,6 @@
 table_name,field_name,field_type,field_title,count
-main,_link,text,_link,48919
-main,status,text,status,48919
-main,evse_id,text,evse_id,48919
-main,coordinates_latitude,number,coordinates_latitude,48919
-main,coordinates_longitude,number,coordinates_longitude,48919
+main,_link,text,_link,49533
+main,status,text,status,49533
+main,evse_id,text,evse_id,49533
+main,coordinates_latitude,number,coordinates_latitude,49533
+main,coordinates_longitude,number,coordinates_longitude,49533
