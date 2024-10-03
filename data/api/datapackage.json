@@ -13,35 +13,35 @@
             "title": "_link",
             "type": "string",
             "format": "string",
-            "count": 49534
+            "count": 49654
           },
           {
             "name": "status",
             "title": "status",
             "type": "string",
             "format": "string",
-            "count": 49534
+            "count": 49654
           },
           {
             "name": "evse_id",
             "title": "evse_id",
             "type": "string",
             "format": "string",
-            "count": 49534
+            "count": 49654
           },
           {
             "name": "coordinates_latitude",
             "title": "coordinates_latitude",
             "type": "number",
             "format": "number",
-            "count": 49534
+            "count": 49654
           },
           {
             "name": "coordinates_longitude",
             "title": "coordinates_longitude",
             "type": "number",
             "format": "number",
-            "count": 49534
+            "count": 49654
           }
         ],
         "primaryKey": "_link"
